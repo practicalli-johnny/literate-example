@@ -49,7 +49,7 @@
 
   ;; -- Leaflet.
 
-  (l (literate/leaflet {}))
+  (l (literate/leaflet {:center [45.505 -0.09]}))
 
   (def geojson (json/read (io/reader "src/dev/resources/points.geojson")))
 
@@ -66,6 +66,7 @@
 
   (l leaflet-widget)
 
+  ;; De-emphasise the point shadow
   (l (merge leaflet-widget {:widget/geojson (update geojson "features" #(take 1 %))}))
 
 
